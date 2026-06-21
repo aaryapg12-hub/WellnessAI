@@ -17,7 +17,7 @@ function SettingsPage() {
   const [dark, setDark] = useState(false);
 
   useEffect(() => {
-    const saved = localStorage.getItem("aura-theme");
+    const saved = localStorage.getItem("wellai-theme");
     const isDark = saved === "dark" || (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches);
     setDark(isDark);
     document.documentElement.classList.toggle("dark", isDark);
@@ -27,7 +27,7 @@ function SettingsPage() {
     const next = !dark;
     setDark(next);
     document.documentElement.classList.toggle("dark", next);
-    localStorage.setItem("aura-theme", next ? "dark" : "light");
+    localStorage.setItem("wellai-theme", next ? "dark" : "light");
   };
 
   const exportData = async () => {
@@ -42,7 +42,7 @@ function SettingsPage() {
     const blob = new Blob([JSON.stringify({ profile: profile.data, logs: logs.data, habits: habits.data, journals: journals.data }, null, 2)], { type: "application/json" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
-    a.href = url; a.download = `aura-export-${Date.now()}.json`; a.click();
+    a.href = url; a.download = `wellai-export-${Date.now()}.json`; a.click();
     URL.revokeObjectURL(url);
     toast.success("Data exported");
   };

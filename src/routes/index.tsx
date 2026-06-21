@@ -266,7 +266,7 @@ function Landing() {
             <Link to="/auth" search={{ mode: "signup" } as never} className="mt-8 inline-flex items-center gap-2 rounded-full bg-white text-primary px-7 py-3.5 font-semibold shadow-elegant hover:shadow-glow transition">
               Create free account <ArrowRight className="h-4 w-4" />
             </Link>
-            <p className="mt-6 text-sm text-white/80">Questions? Email us at hello@aura.health</p>
+            <p className="mt-6 text-sm text-white/80">Questions? Email us at hello@wellai.app</p>
           </div>
         </div>
       </section>
