@@ -1,4 +1,4 @@
-import logo from "@/assets/aura-logo.png";
+import logo from "@/assets/wellai-logo.png";
 
 export function Logo({ size = 32, className }: { size?: number; className?: string }) {
   return (
