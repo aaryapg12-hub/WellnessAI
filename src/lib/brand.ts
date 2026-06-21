@@ -1,5 +1,5 @@
 export const BRAND = {
-  name: "Aura",
+  name: "WellAI",
   tagline: "AI Personal Wellness & Lifestyle Coach",
   short: "Your AI wellness companion",
   description:

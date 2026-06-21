@@ -9,7 +9,7 @@ import { Card, PageHeader, ProgressRing } from "@/components/dashboard/ui";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/_authenticated/dashboard/mental")({
-  head: () => ({ meta: [{ title: "Mental Wellness — Aura" }] }),
+  head: () => ({ meta: [{ title: "Mental Wellness — WellAI" }] }),
   component: MentalPage,
 });
 

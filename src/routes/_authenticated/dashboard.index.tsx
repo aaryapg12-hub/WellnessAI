@@ -14,7 +14,7 @@ import { computeWellnessScore } from "@/lib/wellness";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/_authenticated/dashboard/")({
-  head: () => ({ meta: [{ title: "Dashboard — Aura" }] }),
+  head: () => ({ meta: [{ title: "Dashboard — WellAI" }] }),
   component: DashboardHome,
 });
 
@@ -178,7 +178,7 @@ function DashboardHome() {
               : "Try logging water every 2 hours and aim for a 20-min walk. Small steps compound into big change."}
           </p>
           <Link to="/dashboard/chat" className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-accent-foreground hover:underline">
-            Ask Aura <TrendingUp className="h-3.5 w-3.5" />
+            Ask WellAI <TrendingUp className="h-3.5 w-3.5" />
           </Link>
         </Card>
       </div>

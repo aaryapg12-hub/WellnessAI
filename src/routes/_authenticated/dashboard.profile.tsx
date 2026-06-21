@@ -11,7 +11,7 @@ import { getInitials } from "@/lib/utils-avatar";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/_authenticated/dashboard/profile")({
-  head: () => ({ meta: [{ title: "Profile — Aura" }] }),
+  head: () => ({ meta: [{ title: "Profile — WellAI" }] }),
   component: ProfilePage,
 });
 
@@ -92,7 +92,7 @@ function ProfilePage() {
 
   return (
     <div className="space-y-6">
-      <PageHeader title="Your profile" description="Help Aura personalize your wellness plan." />
+      <PageHeader title="Your profile" description="Help WellAI personalize your wellness plan." />
 
       <Card className="p-6">
         <div className="flex items-start gap-5 flex-wrap">

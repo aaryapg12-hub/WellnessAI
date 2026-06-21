@@ -5,7 +5,7 @@ import { Palette, Upload, Sparkles, Loader2 } from "lucide-react";
 import { Card, PageHeader } from "@/components/dashboard/ui";
 
 export const Route = createFileRoute("/_authenticated/dashboard/fashion")({
-  head: () => ({ meta: [{ title: "Fashion & Color — Aura" }] }),
+  head: () => ({ meta: [{ title: "Fashion & Color — WellAI" }] }),
   component: FashionPage,
 });
 

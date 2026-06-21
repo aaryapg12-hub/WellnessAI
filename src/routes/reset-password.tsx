@@ -7,7 +7,7 @@ import { Wordmark } from "@/components/Logo";
 
 export const Route = createFileRoute("/reset-password")({
   ssr: false,
-  head: () => ({ meta: [{ title: "Reset password — Aura" }] }),
+  head: () => ({ meta: [{ title: "Reset password — WellAI" }] }),
   component: ResetPasswordPage,
 });
 

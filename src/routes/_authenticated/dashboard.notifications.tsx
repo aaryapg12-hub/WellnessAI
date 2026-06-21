@@ -3,7 +3,7 @@ import { Bell, Droplets, Dumbbell, Moon, Sparkles, UtensilsCrossed, Brain } from
 import { Card, PageHeader } from "@/components/dashboard/ui";
 
 export const Route = createFileRoute("/_authenticated/dashboard/notifications")({
-  head: () => ({ meta: [{ title: "Reminders — Aura" }] }),
+  head: () => ({ meta: [{ title: "Reminders — WellAI" }] }),
   component: NotifPage,
 });
 
@@ -40,7 +40,7 @@ function NotifPage() {
           <Bell className="h-5 w-5 text-accent-foreground shrink-0 mt-0.5" />
           <div>
             <div className="font-semibold text-accent-foreground">Browser notifications</div>
-            <p className="text-sm text-accent-foreground/80 mt-1">Enable browser notifications to receive reminders even when Aura is closed.</p>
+            <p className="text-sm text-accent-foreground/80 mt-1">Enable browser notifications to receive reminders even when WellAI is closed.</p>
             <button onClick={() => Notification.requestPermission()} className="mt-3 rounded-full bg-card px-4 py-2 text-sm font-medium hover:opacity-90">Enable notifications</button>
           </div>
         </div>
