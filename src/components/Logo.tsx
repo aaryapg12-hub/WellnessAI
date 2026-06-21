@@ -17,7 +17,7 @@ export function Wordmark({ size = 32 }: { size?: number }) {
   return (
     <div className="flex items-center gap-2">
       <Logo size={size} />
-      <span className="font-display text-xl font-bold tracking-tight">WellAI</span>
+      <span className="font-display text-xl font-bold tracking-tight">WelIAI</span>
     </div>
   );
 }
