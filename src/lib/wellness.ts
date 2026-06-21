@@ -1,4 +1,4 @@
-// Aura wellness score calculator.
+// WellAI wellness score calculator.
 // Weights: sleep 25%, water 20%, exercise 25%, mood 15%, stress 15%.
 
 export type WellnessInputs = {

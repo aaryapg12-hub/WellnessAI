@@ -9,7 +9,7 @@ import { computeWellnessScore } from "@/lib/wellness";
 import { LineChart, Line, ResponsiveContainer, XAxis, YAxis, Tooltip, CartesianGrid } from "recharts";
 
 export const Route = createFileRoute("/_authenticated/dashboard/score")({
-  head: () => ({ meta: [{ title: "Wellness Score — Aura" }] }),
+  head: () => ({ meta: [{ title: "Wellness Score — WellAI" }] }),
   component: ScorePage,
 });
 

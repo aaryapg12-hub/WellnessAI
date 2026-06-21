@@ -7,7 +7,7 @@ import { toast } from "sonner";
 import { useQueryClient } from "@tanstack/react-query";
 
 export const Route = createFileRoute("/_authenticated/dashboard/settings")({
-  head: () => ({ meta: [{ title: "Settings — Aura" }] }),
+  head: () => ({ meta: [{ title: "Settings — WellAI" }] }),
   component: SettingsPage,
 });
 

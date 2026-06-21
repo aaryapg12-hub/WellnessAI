@@ -7,7 +7,7 @@ import { Card, PageHeader, StatCard } from "@/components/dashboard/ui";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/_authenticated/dashboard/diet")({
-  head: () => ({ meta: [{ title: "AI Diet Planner — Aura" }] }),
+  head: () => ({ meta: [{ title: "AI Diet Planner — WellAI" }] }),
   component: DietPage,
 });
 

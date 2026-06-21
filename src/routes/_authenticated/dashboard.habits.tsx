@@ -9,7 +9,7 @@ import { Card, PageHeader } from "@/components/dashboard/ui";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/_authenticated/dashboard/habits")({
-  head: () => ({ meta: [{ title: "Habit Tracker — Aura" }] }),
+  head: () => ({ meta: [{ title: "Habit Tracker — WellAI" }] }),
   component: HabitsPage,
 });
 

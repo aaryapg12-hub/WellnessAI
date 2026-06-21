@@ -9,7 +9,7 @@ import { toast } from "sonner";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 
 export const Route = createFileRoute("/_authenticated/dashboard/skin")({
-  head: () => ({ meta: [{ title: "AI Skin Analysis — Aura" }] }),
+  head: () => ({ meta: [{ title: "AI Skin Analysis — WellAI" }] }),
   component: SkinPage,
 });
 
@@ -86,7 +86,7 @@ function SkinPage() {
 
   return (
     <div className="space-y-6">
-      <PageHeader title="AI Skin Analysis" description="Upload a clear, well-lit selfie. Aura suggests a personalized routine." />
+      <PageHeader title="AI Skin Analysis" description="Upload a clear, well-lit selfie. WellAI suggests a personalized routine." />
 
       <div className="flex items-start gap-2 rounded-2xl border border-warning/30 bg-warning/10 p-4 text-sm">
         <AlertTriangle className="h-4 w-4 text-warning shrink-0 mt-0.5" />

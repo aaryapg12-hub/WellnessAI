@@ -20,7 +20,7 @@ export const Route = createFileRoute("/auth")({
   validateSearch: (s: Record<string, unknown>): SearchParams => ({
     mode: s.mode === "signup" || s.mode === "forgot" ? s.mode : "signin",
   }),
-  head: () => ({ meta: [{ title: "Sign in — Aura" }, { name: "description", content: "Sign in to Aura, your AI personal wellness coach." }] }),
+  head: () => ({ meta: [{ title: "Sign in — WellAI" }, { name: "description", content: "Sign in to WellAI, your AI personal wellness coach." }] }),
   component: AuthPage,
 });
 
@@ -153,7 +153,7 @@ function AuthPage() {
           <p className="mt-6 text-center text-sm text-muted-foreground">
             {mode === "signup" ? <>Already have an account? <button onClick={() => setMode("signin")} className="text-primary font-semibold hover:underline">Sign in</button></>
               : mode === "forgot" ? <button onClick={() => setMode("signin")} className="text-primary font-semibold hover:underline">Back to sign in</button>
-              : <>New to Aura? <button onClick={() => setMode("signup")} className="text-primary font-semibold hover:underline">Create account</button></>}
+              : <>New to WellAI? <button onClick={() => setMode("signup")} className="text-primary font-semibold hover:underline">Create account</button></>}
           </p>
         </div>
       </motion.div>

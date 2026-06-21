@@ -5,7 +5,7 @@ import { Card, PageHeader, StatCard } from "@/components/dashboard/ui";
 import { motion } from "framer-motion";
 
 export const Route = createFileRoute("/_authenticated/dashboard/fitness")({
-  head: () => ({ meta: [{ title: "Fitness Coach — Aura" }] }),
+  head: () => ({ meta: [{ title: "Fitness Coach — WellAI" }] }),
   component: FitnessPage,
 });
 

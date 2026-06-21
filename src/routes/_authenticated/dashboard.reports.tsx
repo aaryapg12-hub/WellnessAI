@@ -8,7 +8,7 @@ import { AreaChart, Area, LineChart, Line, ResponsiveContainer, XAxis, YAxis, To
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/_authenticated/dashboard/reports")({
-  head: () => ({ meta: [{ title: "Reports — Aura" }] }),
+  head: () => ({ meta: [{ title: "Reports — WellAI" }] }),
   component: ReportsPage,
 });
 

@@ -8,7 +8,7 @@ import { useAuthUser } from "@/hooks/useAuthUser";
 import { Card, PageHeader } from "@/components/dashboard/ui";
 
 export const Route = createFileRoute("/_authenticated/dashboard/chat")({
-  head: () => ({ meta: [{ title: "AI Wellness Chat — Aura" }] }),
+  head: () => ({ meta: [{ title: "AI Wellness Chat — WellAI" }] }),
   component: ChatPage,
 });
 
@@ -74,11 +74,11 @@ function ChatPage() {
 
   return (
     <div className="space-y-4 h-[calc(100vh-9rem)] flex flex-col">
-      <PageHeader title="Aura Chat" description="Ask anything wellness-related. Aura listens." />
+      <PageHeader title="WellAI Chat" description="Ask anything wellness-related. WellAI listens." />
 
       <div className="flex items-start gap-2 rounded-2xl border border-warning/30 bg-warning/10 p-3 text-xs">
         <AlertTriangle className="h-3.5 w-3.5 text-warning shrink-0 mt-0.5" />
-        <p>Aura provides general wellness guidance only. It does not replace professional medical advice.</p>
+        <p>WellAI provides general wellness guidance only. It does not replace professional medical advice.</p>
       </div>
 
       <Card className="flex-1 flex flex-col overflow-hidden">
@@ -121,7 +121,7 @@ function ChatPage() {
         </div>
 
         <form onSubmit={(e) => { e.preventDefault(); send(input); }} className="border-t border-border p-3 flex gap-2">
-          <input value={input} onChange={(e) => setInput(e.target.value)} placeholder="Ask Aura anything…" className="flex-1 rounded-full border border-input bg-background px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ring" />
+          <input value={input} onChange={(e) => setInput(e.target.value)} placeholder="Ask WellAI anything…" className="flex-1 rounded-full border border-input bg-background px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ring" />
           <button type="submit" disabled={!input.trim() || thinking} className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-gradient-primary text-primary-foreground disabled:opacity-50">
             {thinking ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
           </button>

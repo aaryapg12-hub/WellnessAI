@@ -11,9 +11,9 @@ import { useState } from "react";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Aura — AI Personal Wellness & Lifestyle Coach" },
-      { name: "description", content: "Aura is your AI-powered personal wellness coach. Personalized skin analysis, diet, fitness, mental wellness, and habit tracking — aligned with UN SDG 3." },
-      { property: "og:title", content: "Aura — AI Personal Wellness Coach" },
+      { title: "WellAI — AI Personal Wellness & Lifestyle Coach" },
+      { name: "description", content: "WellAI is your AI-powered personal wellness coach. Personalized skin analysis, diet, fitness, mental wellness, and habit tracking — aligned with UN SDG 3." },
+      { property: "og:title", content: "WellAI — AI Personal Wellness Coach" },
       { property: "og:description", content: "AI-powered wellness for skin, diet, fitness, sleep, mood and habits." },
     ],
   }),
@@ -32,24 +32,24 @@ const features = [
 ];
 
 const steps = [
-  { n: "01", title: "Create your profile", desc: "Tell Aura about your goals, lifestyle and preferences." },
+  { n: "01", title: "Create your profile", desc: "Tell WellAI about your goals, lifestyle and preferences." },
   { n: "02", title: "Get a personal plan", desc: "AI builds your skin, diet, fitness and mental wellness routines." },
   { n: "03", title: "Track every day", desc: "Log water, sleep, mood and habits in seconds." },
   { n: "04", title: "Improve over time", desc: "Your Wellness Score grows as you build lasting habits." },
 ];
 
 const testimonials = [
-  { name: "Aisha R.", role: "Designer", text: "Aura's skin routine cleared my breakouts in 6 weeks. The app feels like a personal coach." },
+  { name: "Aisha R.", role: "Designer", text: "WellAI's skin routine cleared my breakouts in 6 weeks. The app feels like a personal coach." },
   { name: "Marcus L.", role: "Engineer", text: "I finally hit 8 hours of sleep consistently. The habit tracker and AI tips are everything." },
   { name: "Priya S.", role: "Student", text: "The diet planner is realistic — uses local ingredients and fits my budget." },
 ];
 
 const faqs = [
-  { q: "Is Aura a medical app?", a: "No. Aura provides general wellness guidance. Always consult a qualified healthcare professional for medical advice." },
+  { q: "Is WellAI a medical app?", a: "No. WellAI provides general wellness guidance. Always consult a qualified healthcare professional for medical advice." },
   { q: "Is my data private?", a: "Yes. Your data is encrypted, stored securely, and only visible to you. You can export or delete it anytime." },
-  { q: "How does the AI work?", a: "Aura analyzes your inputs — selfies, logs, preferences — to generate personalized plans that adapt as you progress." },
-  { q: "Does Aura support SDG 3?", a: "Aura is aligned with the United Nations Sustainable Development Goal 3: Good Health & Well-being for all." },
-  { q: "Is it free?", a: "Aura's core wellness features are free for personal use. Premium AI features may be available in the future." },
+  { q: "How does the AI work?", a: "WellAI analyzes your inputs — selfies, logs, preferences — to generate personalized plans that adapt as you progress." },
+  { q: "Does WellAI support SDG 3?", a: "WellAI is aligned with the United Nations Sustainable Development Goal 3: Good Health & Well-being for all." },
+  { q: "Is it free?", a: "WellAI's core wellness features are free for personal use. Premium AI features may be available in the future." },
 ];
 
 function Landing() {
@@ -198,7 +198,7 @@ function Landing() {
               </div>
               <h2 className="font-display text-4xl sm:text-5xl font-bold leading-tight">Good Health &amp; Well-being for All</h2>
               <p className="mt-4 text-white/90 max-w-xl">
-                Aura is built to support the United Nations Sustainable Development Goal 3 — ensuring healthy lives and promoting well-being for people of every age, everywhere.
+                WellAI is built to support the United Nations Sustainable Development Goal 3 — ensuring healthy lives and promoting well-being for people of every age, everywhere.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-4">
@@ -274,7 +274,7 @@ function Landing() {
       <footer className="border-t border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-wrap items-center justify-between gap-4">
           <Wordmark />
-          <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} Aura. For wellness purposes only — not medical advice.</p>
+          <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} WellAI. For wellness purposes only — not medical advice.</p>
           <div className="flex gap-6 text-sm text-muted-foreground">
             <a href="#" className="hover:text-foreground">Privacy</a>
             <a href="#" className="hover:text-foreground">Terms</a>
