@@ -14,7 +14,353 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      chat_messages: {
+        Row: {
+          content: string
+          created_at: string
+          id: string
+          role: string
+          user_id: string
+        }
+        Insert: {
+          content: string
+          created_at?: string
+          id?: string
+          role: string
+          user_id: string
+        }
+        Update: {
+          content?: string
+          created_at?: string
+          id?: string
+          role?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      daily_logs: {
+        Row: {
+          calories: number | null
+          created_at: string
+          exercise_minutes: number | null
+          id: string
+          log_date: string
+          mood: string | null
+          mood_score: number | null
+          notes: string | null
+          sleep_hours: number | null
+          steps: number | null
+          stress_level: number | null
+          user_id: string
+          water_ml: number | null
+          weight_kg: number | null
+        }
+        Insert: {
+          calories?: number | null
+          created_at?: string
+          exercise_minutes?: number | null
+          id?: string
+          log_date?: string
+          mood?: string | null
+          mood_score?: number | null
+          notes?: string | null
+          sleep_hours?: number | null
+          steps?: number | null
+          stress_level?: number | null
+          user_id: string
+          water_ml?: number | null
+          weight_kg?: number | null
+        }
+        Update: {
+          calories?: number | null
+          created_at?: string
+          exercise_minutes?: number | null
+          id?: string
+          log_date?: string
+          mood?: string | null
+          mood_score?: number | null
+          notes?: string | null
+          sleep_hours?: number | null
+          steps?: number | null
+          stress_level?: number | null
+          user_id?: string
+          water_ml?: number | null
+          weight_kg?: number | null
+        }
+        Relationships: []
+      }
+      diet_plans: {
+        Row: {
+          created_at: string
+          id: string
+          plan: Json | null
+          title: string | null
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          plan?: Json | null
+          title?: string | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          plan?: Json | null
+          title?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      habit_logs: {
+        Row: {
+          completed: boolean | null
+          created_at: string
+          habit_id: string
+          id: string
+          log_date: string
+          user_id: string
+          value: number | null
+        }
+        Insert: {
+          completed?: boolean | null
+          created_at?: string
+          habit_id: string
+          id?: string
+          log_date?: string
+          user_id: string
+          value?: number | null
+        }
+        Update: {
+          completed?: boolean | null
+          created_at?: string
+          habit_id?: string
+          id?: string
+          log_date?: string
+          user_id?: string
+          value?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "habit_logs_habit_id_fkey"
+            columns: ["habit_id"]
+            isOneToOne: false
+            referencedRelation: "habits"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      habits: {
+        Row: {
+          created_at: string
+          icon: string | null
+          id: string
+          name: string
+          streak: number | null
+          target_value: number | null
+          unit: string | null
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          icon?: string | null
+          id?: string
+          name: string
+          streak?: number | null
+          target_value?: number | null
+          unit?: string | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          icon?: string | null
+          id?: string
+          name?: string
+          streak?: number | null
+          target_value?: number | null
+          unit?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      journal_entries: {
+        Row: {
+          content: string | null
+          created_at: string
+          id: string
+          mood: string | null
+          title: string | null
+          user_id: string
+        }
+        Insert: {
+          content?: string | null
+          created_at?: string
+          id?: string
+          mood?: string | null
+          title?: string | null
+          user_id: string
+        }
+        Update: {
+          content?: string | null
+          created_at?: string
+          id?: string
+          mood?: string | null
+          title?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          activity_level: string | null
+          age: number | null
+          alcohol: string | null
+          allergies: string | null
+          avatar_url: string | null
+          body_fat: number | null
+          budget: string | null
+          country: string | null
+          created_at: string
+          cuisine_preference: string | null
+          email: string | null
+          emergency_contact: string | null
+          fitness_goal: string | null
+          food_preferences: string | null
+          full_name: string | null
+          gender: string | null
+          height_cm: number | null
+          id: string
+          lifestyle_habits: string | null
+          medical_conditions: string | null
+          occupation: string | null
+          skin_concerns: string | null
+          skin_type: string | null
+          sleep_hours: number | null
+          smoking: string | null
+          updated_at: string
+          water_intake_target: number | null
+          weight_kg: number | null
+        }
+        Insert: {
+          activity_level?: string | null
+          age?: number | null
+          alcohol?: string | null
+          allergies?: string | null
+          avatar_url?: string | null
+          body_fat?: number | null
+          budget?: string | null
+          country?: string | null
+          created_at?: string
+          cuisine_preference?: string | null
+          email?: string | null
+          emergency_contact?: string | null
+          fitness_goal?: string | null
+          food_preferences?: string | null
+          full_name?: string | null
+          gender?: string | null
+          height_cm?: number | null
+          id: string
+          lifestyle_habits?: string | null
+          medical_conditions?: string | null
+          occupation?: string | null
+          skin_concerns?: string | null
+          skin_type?: string | null
+          sleep_hours?: number | null
+          smoking?: string | null
+          updated_at?: string
+          water_intake_target?: number | null
+          weight_kg?: number | null
+        }
+        Update: {
+          activity_level?: string | null
+          age?: number | null
+          alcohol?: string | null
+          allergies?: string | null
+          avatar_url?: string | null
+          body_fat?: number | null
+          budget?: string | null
+          country?: string | null
+          created_at?: string
+          cuisine_preference?: string | null
+          email?: string | null
+          emergency_contact?: string | null
+          fitness_goal?: string | null
+          food_preferences?: string | null
+          full_name?: string | null
+          gender?: string | null
+          height_cm?: number | null
+          id?: string
+          lifestyle_habits?: string | null
+          medical_conditions?: string | null
+          occupation?: string | null
+          skin_concerns?: string | null
+          skin_type?: string | null
+          sleep_hours?: number | null
+          smoking?: string | null
+          updated_at?: string
+          water_intake_target?: number | null
+          weight_kg?: number | null
+        }
+        Relationships: []
+      }
+      skin_reports: {
+        Row: {
+          analysis: Json | null
+          created_at: string
+          id: string
+          image_url: string | null
+          routine: Json | null
+          skin_age: number | null
+          skin_score: number | null
+          user_id: string
+        }
+        Insert: {
+          analysis?: Json | null
+          created_at?: string
+          id?: string
+          image_url?: string | null
+          routine?: Json | null
+          skin_age?: number | null
+          skin_score?: number | null
+          user_id: string
+        }
+        Update: {
+          analysis?: Json | null
+          created_at?: string
+          id?: string
+          image_url?: string | null
+          routine?: Json | null
+          skin_age?: number | null
+          skin_score?: number | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      workout_plans: {
+        Row: {
+          created_at: string
+          id: string
+          plan: Json | null
+          title: string | null
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          plan?: Json | null
+          title?: string | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          plan?: Json | null
+          title?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
