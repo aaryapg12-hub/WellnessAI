@@ -99,9 +99,9 @@ function AuthPage() {
     <div className="min-h-screen bg-aurora flex items-center justify-center p-4">
       <div className="absolute top-6 left-6"><Link to="/"><Wordmark /></Link></div>
 
-      <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="w-full max-w-md">
+      <motion.div animate={{ opacity: [0,1], y: [12,0] }} transition={{ duration: 0.5 }} className="w-full max-w-md">
         <div className="glass rounded-3xl shadow-elegant p-8">
-          <AnimatePresence mode="wait">
+          <AnimatePresence mode="wait" initial={false}>
             <motion.div key={mode} initial={{ opacity: 0, x: 8 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -8 }}>
               <h1 className="font-display text-3xl font-bold">
                 {mode === "signup" ? "Create your account" : mode === "forgot" ? "Reset password" : "Welcome back"}
