@@ -9,38 +9,296 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as ResetPasswordRouteImport } from './routes/reset-password'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
+import { Route as AuthenticatedDashboardIndexRouteImport } from './routes/_authenticated/dashboard.index'
+import { Route as AuthenticatedDashboardSkinRouteImport } from './routes/_authenticated/dashboard.skin'
+import { Route as AuthenticatedDashboardSettingsRouteImport } from './routes/_authenticated/dashboard.settings'
+import { Route as AuthenticatedDashboardScoreRouteImport } from './routes/_authenticated/dashboard.score'
+import { Route as AuthenticatedDashboardReportsRouteImport } from './routes/_authenticated/dashboard.reports'
+import { Route as AuthenticatedDashboardProfileRouteImport } from './routes/_authenticated/dashboard.profile'
+import { Route as AuthenticatedDashboardNotificationsRouteImport } from './routes/_authenticated/dashboard.notifications'
+import { Route as AuthenticatedDashboardMentalRouteImport } from './routes/_authenticated/dashboard.mental'
+import { Route as AuthenticatedDashboardHabitsRouteImport } from './routes/_authenticated/dashboard.habits'
+import { Route as AuthenticatedDashboardFitnessRouteImport } from './routes/_authenticated/dashboard.fitness'
+import { Route as AuthenticatedDashboardFashionRouteImport } from './routes/_authenticated/dashboard.fashion'
+import { Route as AuthenticatedDashboardDietRouteImport } from './routes/_authenticated/dashboard.diet'
+import { Route as AuthenticatedDashboardChatRouteImport } from './routes/_authenticated/dashboard.chat'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResetPasswordRoute = ResetPasswordRouteImport.update({
+  id: '/reset-password',
+  path: '/reset-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedDashboardIndexRoute =
+  AuthenticatedDashboardIndexRouteImport.update({
+    id: '/',
+    path: '/',
+    getParentRoute: () => AuthenticatedDashboardRoute,
+  } as any)
+const AuthenticatedDashboardSkinRoute =
+  AuthenticatedDashboardSkinRouteImport.update({
+    id: '/skin',
+    path: '/skin',
+    getParentRoute: () => AuthenticatedDashboardRoute,
+  } as any)
+const AuthenticatedDashboardSettingsRoute =
+  AuthenticatedDashboardSettingsRouteImport.update({
+    id: '/settings',
+    path: '/settings',
+    getParentRoute: () => AuthenticatedDashboardRoute,
+  } as any)
+const AuthenticatedDashboardScoreRoute =
+  AuthenticatedDashboardScoreRouteImport.update({
+    id: '/score',
+    path: '/score',
+    getParentRoute: () => AuthenticatedDashboardRoute,
+  } as any)
+const AuthenticatedDashboardReportsRoute =
+  AuthenticatedDashboardReportsRouteImport.update({
+    id: '/reports',
+    path: '/reports',
+    getParentRoute: () => AuthenticatedDashboardRoute,
+  } as any)
+const AuthenticatedDashboardProfileRoute =
+  AuthenticatedDashboardProfileRouteImport.update({
+    id: '/profile',
+    path: '/profile',
+    getParentRoute: () => AuthenticatedDashboardRoute,
+  } as any)
+const AuthenticatedDashboardNotificationsRoute =
+  AuthenticatedDashboardNotificationsRouteImport.update({
+    id: '/notifications',
+    path: '/notifications',
+    getParentRoute: () => AuthenticatedDashboardRoute,
+  } as any)
+const AuthenticatedDashboardMentalRoute =
+  AuthenticatedDashboardMentalRouteImport.update({
+    id: '/mental',
+    path: '/mental',
+    getParentRoute: () => AuthenticatedDashboardRoute,
+  } as any)
+const AuthenticatedDashboardHabitsRoute =
+  AuthenticatedDashboardHabitsRouteImport.update({
+    id: '/habits',
+    path: '/habits',
+    getParentRoute: () => AuthenticatedDashboardRoute,
+  } as any)
+const AuthenticatedDashboardFitnessRoute =
+  AuthenticatedDashboardFitnessRouteImport.update({
+    id: '/fitness',
+    path: '/fitness',
+    getParentRoute: () => AuthenticatedDashboardRoute,
+  } as any)
+const AuthenticatedDashboardFashionRoute =
+  AuthenticatedDashboardFashionRouteImport.update({
+    id: '/fashion',
+    path: '/fashion',
+    getParentRoute: () => AuthenticatedDashboardRoute,
+  } as any)
+const AuthenticatedDashboardDietRoute =
+  AuthenticatedDashboardDietRouteImport.update({
+    id: '/diet',
+    path: '/diet',
+    getParentRoute: () => AuthenticatedDashboardRoute,
+  } as any)
+const AuthenticatedDashboardChatRoute =
+  AuthenticatedDashboardChatRouteImport.update({
+    id: '/chat',
+    path: '/chat',
+    getParentRoute: () => AuthenticatedDashboardRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/dashboard': typeof AuthenticatedDashboardRouteWithChildren
+  '/dashboard/chat': typeof AuthenticatedDashboardChatRoute
+  '/dashboard/diet': typeof AuthenticatedDashboardDietRoute
+  '/dashboard/fashion': typeof AuthenticatedDashboardFashionRoute
+  '/dashboard/fitness': typeof AuthenticatedDashboardFitnessRoute
+  '/dashboard/habits': typeof AuthenticatedDashboardHabitsRoute
+  '/dashboard/mental': typeof AuthenticatedDashboardMentalRoute
+  '/dashboard/notifications': typeof AuthenticatedDashboardNotificationsRoute
+  '/dashboard/profile': typeof AuthenticatedDashboardProfileRoute
+  '/dashboard/reports': typeof AuthenticatedDashboardReportsRoute
+  '/dashboard/score': typeof AuthenticatedDashboardScoreRoute
+  '/dashboard/settings': typeof AuthenticatedDashboardSettingsRoute
+  '/dashboard/skin': typeof AuthenticatedDashboardSkinRoute
+  '/dashboard/': typeof AuthenticatedDashboardIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/dashboard/chat': typeof AuthenticatedDashboardChatRoute
+  '/dashboard/diet': typeof AuthenticatedDashboardDietRoute
+  '/dashboard/fashion': typeof AuthenticatedDashboardFashionRoute
+  '/dashboard/fitness': typeof AuthenticatedDashboardFitnessRoute
+  '/dashboard/habits': typeof AuthenticatedDashboardHabitsRoute
+  '/dashboard/mental': typeof AuthenticatedDashboardMentalRoute
+  '/dashboard/notifications': typeof AuthenticatedDashboardNotificationsRoute
+  '/dashboard/profile': typeof AuthenticatedDashboardProfileRoute
+  '/dashboard/reports': typeof AuthenticatedDashboardReportsRoute
+  '/dashboard/score': typeof AuthenticatedDashboardScoreRoute
+  '/dashboard/settings': typeof AuthenticatedDashboardSettingsRoute
+  '/dashboard/skin': typeof AuthenticatedDashboardSkinRoute
+  '/dashboard': typeof AuthenticatedDashboardIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
+  '/auth': typeof AuthRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/_authenticated/dashboard': typeof AuthenticatedDashboardRouteWithChildren
+  '/_authenticated/dashboard/chat': typeof AuthenticatedDashboardChatRoute
+  '/_authenticated/dashboard/diet': typeof AuthenticatedDashboardDietRoute
+  '/_authenticated/dashboard/fashion': typeof AuthenticatedDashboardFashionRoute
+  '/_authenticated/dashboard/fitness': typeof AuthenticatedDashboardFitnessRoute
+  '/_authenticated/dashboard/habits': typeof AuthenticatedDashboardHabitsRoute
+  '/_authenticated/dashboard/mental': typeof AuthenticatedDashboardMentalRoute
+  '/_authenticated/dashboard/notifications': typeof AuthenticatedDashboardNotificationsRoute
+  '/_authenticated/dashboard/profile': typeof AuthenticatedDashboardProfileRoute
+  '/_authenticated/dashboard/reports': typeof AuthenticatedDashboardReportsRoute
+  '/_authenticated/dashboard/score': typeof AuthenticatedDashboardScoreRoute
+  '/_authenticated/dashboard/settings': typeof AuthenticatedDashboardSettingsRoute
+  '/_authenticated/dashboard/skin': typeof AuthenticatedDashboardSkinRoute
+  '/_authenticated/dashboard/': typeof AuthenticatedDashboardIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/auth'
+    | '/reset-password'
+    | '/sitemap.xml'
+    | '/dashboard'
+    | '/dashboard/chat'
+    | '/dashboard/diet'
+    | '/dashboard/fashion'
+    | '/dashboard/fitness'
+    | '/dashboard/habits'
+    | '/dashboard/mental'
+    | '/dashboard/notifications'
+    | '/dashboard/profile'
+    | '/dashboard/reports'
+    | '/dashboard/score'
+    | '/dashboard/settings'
+    | '/dashboard/skin'
+    | '/dashboard/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/auth'
+    | '/reset-password'
+    | '/sitemap.xml'
+    | '/dashboard/chat'
+    | '/dashboard/diet'
+    | '/dashboard/fashion'
+    | '/dashboard/fitness'
+    | '/dashboard/habits'
+    | '/dashboard/mental'
+    | '/dashboard/notifications'
+    | '/dashboard/profile'
+    | '/dashboard/reports'
+    | '/dashboard/score'
+    | '/dashboard/settings'
+    | '/dashboard/skin'
+    | '/dashboard'
+  id:
+    | '__root__'
+    | '/'
+    | '/_authenticated'
+    | '/auth'
+    | '/reset-password'
+    | '/sitemap.xml'
+    | '/_authenticated/dashboard'
+    | '/_authenticated/dashboard/chat'
+    | '/_authenticated/dashboard/diet'
+    | '/_authenticated/dashboard/fashion'
+    | '/_authenticated/dashboard/fitness'
+    | '/_authenticated/dashboard/habits'
+    | '/_authenticated/dashboard/mental'
+    | '/_authenticated/dashboard/notifications'
+    | '/_authenticated/dashboard/profile'
+    | '/_authenticated/dashboard/reports'
+    | '/_authenticated/dashboard/score'
+    | '/_authenticated/dashboard/settings'
+    | '/_authenticated/dashboard/skin'
+    | '/_authenticated/dashboard/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
+  AuthRoute: typeof AuthRoute
+  ResetPasswordRoute: typeof ResetPasswordRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reset-password': {
+      id: '/reset-password'
+      path: '/reset-password'
+      fullPath: '/reset-password'
+      preLoaderRoute: typeof ResetPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,22 +306,164 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/dashboard': {
+      id: '/_authenticated/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof AuthenticatedDashboardRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/dashboard/': {
+      id: '/_authenticated/dashboard/'
+      path: '/'
+      fullPath: '/dashboard/'
+      preLoaderRoute: typeof AuthenticatedDashboardIndexRouteImport
+      parentRoute: typeof AuthenticatedDashboardRoute
+    }
+    '/_authenticated/dashboard/skin': {
+      id: '/_authenticated/dashboard/skin'
+      path: '/skin'
+      fullPath: '/dashboard/skin'
+      preLoaderRoute: typeof AuthenticatedDashboardSkinRouteImport
+      parentRoute: typeof AuthenticatedDashboardRoute
+    }
+    '/_authenticated/dashboard/settings': {
+      id: '/_authenticated/dashboard/settings'
+      path: '/settings'
+      fullPath: '/dashboard/settings'
+      preLoaderRoute: typeof AuthenticatedDashboardSettingsRouteImport
+      parentRoute: typeof AuthenticatedDashboardRoute
+    }
+    '/_authenticated/dashboard/score': {
+      id: '/_authenticated/dashboard/score'
+      path: '/score'
+      fullPath: '/dashboard/score'
+      preLoaderRoute: typeof AuthenticatedDashboardScoreRouteImport
+      parentRoute: typeof AuthenticatedDashboardRoute
+    }
+    '/_authenticated/dashboard/reports': {
+      id: '/_authenticated/dashboard/reports'
+      path: '/reports'
+      fullPath: '/dashboard/reports'
+      preLoaderRoute: typeof AuthenticatedDashboardReportsRouteImport
+      parentRoute: typeof AuthenticatedDashboardRoute
+    }
+    '/_authenticated/dashboard/profile': {
+      id: '/_authenticated/dashboard/profile'
+      path: '/profile'
+      fullPath: '/dashboard/profile'
+      preLoaderRoute: typeof AuthenticatedDashboardProfileRouteImport
+      parentRoute: typeof AuthenticatedDashboardRoute
+    }
+    '/_authenticated/dashboard/notifications': {
+      id: '/_authenticated/dashboard/notifications'
+      path: '/notifications'
+      fullPath: '/dashboard/notifications'
+      preLoaderRoute: typeof AuthenticatedDashboardNotificationsRouteImport
+      parentRoute: typeof AuthenticatedDashboardRoute
+    }
+    '/_authenticated/dashboard/mental': {
+      id: '/_authenticated/dashboard/mental'
+      path: '/mental'
+      fullPath: '/dashboard/mental'
+      preLoaderRoute: typeof AuthenticatedDashboardMentalRouteImport
+      parentRoute: typeof AuthenticatedDashboardRoute
+    }
+    '/_authenticated/dashboard/habits': {
+      id: '/_authenticated/dashboard/habits'
+      path: '/habits'
+      fullPath: '/dashboard/habits'
+      preLoaderRoute: typeof AuthenticatedDashboardHabitsRouteImport
+      parentRoute: typeof AuthenticatedDashboardRoute
+    }
+    '/_authenticated/dashboard/fitness': {
+      id: '/_authenticated/dashboard/fitness'
+      path: '/fitness'
+      fullPath: '/dashboard/fitness'
+      preLoaderRoute: typeof AuthenticatedDashboardFitnessRouteImport
+      parentRoute: typeof AuthenticatedDashboardRoute
+    }
+    '/_authenticated/dashboard/fashion': {
+      id: '/_authenticated/dashboard/fashion'
+      path: '/fashion'
+      fullPath: '/dashboard/fashion'
+      preLoaderRoute: typeof AuthenticatedDashboardFashionRouteImport
+      parentRoute: typeof AuthenticatedDashboardRoute
+    }
+    '/_authenticated/dashboard/diet': {
+      id: '/_authenticated/dashboard/diet'
+      path: '/diet'
+      fullPath: '/dashboard/diet'
+      preLoaderRoute: typeof AuthenticatedDashboardDietRouteImport
+      parentRoute: typeof AuthenticatedDashboardRoute
+    }
+    '/_authenticated/dashboard/chat': {
+      id: '/_authenticated/dashboard/chat'
+      path: '/chat'
+      fullPath: '/dashboard/chat'
+      preLoaderRoute: typeof AuthenticatedDashboardChatRouteImport
+      parentRoute: typeof AuthenticatedDashboardRoute
+    }
   }
 }
 
+interface AuthenticatedDashboardRouteChildren {
+  AuthenticatedDashboardChatRoute: typeof AuthenticatedDashboardChatRoute
+  AuthenticatedDashboardDietRoute: typeof AuthenticatedDashboardDietRoute
+  AuthenticatedDashboardFashionRoute: typeof AuthenticatedDashboardFashionRoute
+  AuthenticatedDashboardFitnessRoute: typeof AuthenticatedDashboardFitnessRoute
+  AuthenticatedDashboardHabitsRoute: typeof AuthenticatedDashboardHabitsRoute
+  AuthenticatedDashboardMentalRoute: typeof AuthenticatedDashboardMentalRoute
+  AuthenticatedDashboardNotificationsRoute: typeof AuthenticatedDashboardNotificationsRoute
+  AuthenticatedDashboardProfileRoute: typeof AuthenticatedDashboardProfileRoute
+  AuthenticatedDashboardReportsRoute: typeof AuthenticatedDashboardReportsRoute
+  AuthenticatedDashboardScoreRoute: typeof AuthenticatedDashboardScoreRoute
+  AuthenticatedDashboardSettingsRoute: typeof AuthenticatedDashboardSettingsRoute
+  AuthenticatedDashboardSkinRoute: typeof AuthenticatedDashboardSkinRoute
+  AuthenticatedDashboardIndexRoute: typeof AuthenticatedDashboardIndexRoute
+}
+
+const AuthenticatedDashboardRouteChildren: AuthenticatedDashboardRouteChildren =
+  {
+    AuthenticatedDashboardChatRoute: AuthenticatedDashboardChatRoute,
+    AuthenticatedDashboardDietRoute: AuthenticatedDashboardDietRoute,
+    AuthenticatedDashboardFashionRoute: AuthenticatedDashboardFashionRoute,
+    AuthenticatedDashboardFitnessRoute: AuthenticatedDashboardFitnessRoute,
+    AuthenticatedDashboardHabitsRoute: AuthenticatedDashboardHabitsRoute,
+    AuthenticatedDashboardMentalRoute: AuthenticatedDashboardMentalRoute,
+    AuthenticatedDashboardNotificationsRoute:
+      AuthenticatedDashboardNotificationsRoute,
+    AuthenticatedDashboardProfileRoute: AuthenticatedDashboardProfileRoute,
+    AuthenticatedDashboardReportsRoute: AuthenticatedDashboardReportsRoute,
+    AuthenticatedDashboardScoreRoute: AuthenticatedDashboardScoreRoute,
+    AuthenticatedDashboardSettingsRoute: AuthenticatedDashboardSettingsRoute,
+    AuthenticatedDashboardSkinRoute: AuthenticatedDashboardSkinRoute,
+    AuthenticatedDashboardIndexRoute: AuthenticatedDashboardIndexRoute,
+  }
+
+const AuthenticatedDashboardRouteWithChildren =
+  AuthenticatedDashboardRoute._addFileChildren(
+    AuthenticatedDashboardRouteChildren,
+  )
+
+interface AuthenticatedRouteRouteChildren {
+  AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRouteWithChildren
+}
+
+const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedDashboardRoute: AuthenticatedDashboardRouteWithChildren,
+}
+
+const AuthenticatedRouteRouteWithChildren =
+  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
+  AuthRoute: AuthRoute,
+  ResetPasswordRoute: ResetPasswordRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
