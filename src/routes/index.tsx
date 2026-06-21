@@ -81,7 +81,7 @@ function Landing() {
         <div className="absolute top-40 right-0 h-80 w-80 rounded-full bg-accent/20 blur-3xl animate-float" style={{ animationDelay: "1.5s" }} />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-24 lg:pt-28 lg:pb-32 grid lg:grid-cols-2 gap-12 items-center">
-          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
+          <motion.div animate={{ opacity: [0, 1], y: [16, 0] }} transition={{ duration: 0.7 }}>
             <div className="inline-flex items-center gap-2 rounded-full glass px-3 py-1 text-xs font-medium mb-6">
               <Heart className="h-3.5 w-3.5 text-accent" />
               Aligned with UN SDG 3 · Good Health & Well-being
@@ -113,7 +113,7 @@ function Landing() {
             </div>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.2 }} className="relative">
+          <motion.div animate={{ opacity: [0, 1], scale: [0.95, 1] }} transition={{ duration: 0.8, delay: 0.2 }} className="relative">
             <div className="absolute -inset-6 bg-gradient-wellness opacity-30 blur-3xl rounded-full" />
             <div className="relative glass rounded-3xl p-3 shadow-elegant">
               <img src={hero} alt="AI wellness illustration" width={1024} height={1024} className="rounded-2xl w-full" />
@@ -157,7 +157,7 @@ function Landing() {
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {features.map((f, i) => (
-            <motion.div key={f.title} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }} className="group rounded-2xl border border-border bg-card p-6 shadow-card hover-lift">
+            <motion.div key={f.title} whileInView={{ opacity: [0, 1], y: [12, 0] }} viewport={{ once: true, amount: 0.1 }} transition={{ delay: i * 0.05 }} className="group rounded-2xl border border-border bg-card p-6 shadow-card hover-lift">
               <div className="grid h-11 w-11 place-items-center rounded-xl bg-gradient-mint mb-4 group-hover:scale-110 transition">
                 <f.icon className="h-5 w-5 text-accent-foreground" />
               </div>
@@ -177,7 +177,7 @@ function Landing() {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {steps.map((s, i) => (
-              <motion.div key={s.n} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }} className="relative rounded-2xl glass p-6">
+              <motion.div key={s.n} whileInView={{ opacity: [0, 1], y: [12, 0] }} viewport={{ once: true, amount: 0.1 }} transition={{ delay: i * 0.08 }} className="relative rounded-2xl glass p-6">
                 <div className="font-display text-5xl font-bold text-gradient opacity-90">{s.n}</div>
                 <h3 className="mt-3 font-semibold text-lg">{s.title}</h3>
                 <p className="mt-1.5 text-sm text-muted-foreground">{s.desc}</p>
