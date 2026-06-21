@@ -1,5 +1,5 @@
 import { createFileRoute, Link, useNavigate, useSearch } from "@tanstack/react-router";
-import { useState, type FormEvent } from "react";
+import { useState, useEffect, type FormEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, Lock, User as UserIcon, ArrowRight, Loader2 } from "lucide-react";
 import { z } from "zod";
@@ -7,6 +7,7 @@ import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { lovable } from "@/integrations/lovable";
 import { Wordmark } from "@/components/Logo";
+import { useAuthUser } from "@/hooks/useAuthUser";
 
 const authSchema = z.object({
   email: z.string().trim().email("Invalid email").max(255),
@@ -34,6 +35,15 @@ function AuthPage() {
   const [remember, setRemember] = useState(true);
   const [loading, setLoading] = useState(false);
 
+  const { user, loading: authLoading } = useAuthUser();
+
+  // Auto-redirect already authenticated users to dashboard
+  useEffect(() => {
+    if (!authLoading && user) {
+      navigate({ to: "/dashboard", replace: true });
+    }
+  }, [user, authLoading, navigate]);
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setLoading(true);
@@ -57,13 +67,19 @@ function AuthPage() {
       if (!parsed.success) { toast.error(parsed.error.issues[0].message); return; }
 
       if (mode === "signup") {
-        const { error } = await supabase.auth.signUp({
+        const { data, error } = await supabase.auth.signUp({
           email, password,
-          options: { emailRedirectTo: window.location.origin, data: { full_name: name } },
+          options: { emailRedirectTo: window.location.origin + "/auth", data: { full_name: name } },
         });
         if (error) throw error;
-        toast.success("Account created! Check your email to verify.");
-        navigate({ to: "/dashboard" });
+        
+        if (data.session) {
+          toast.success("Account created and signed in!");
+          navigate({ to: "/dashboard" });
+        } else {
+          toast.info("Account created! Please check your email for a verification link.");
+          setMode("signin");
+        }
       } else {
         const { error } = await supabase.auth.signInWithPassword({ email, password });
         if (error) throw error;
@@ -84,12 +100,46 @@ function AuthPage() {
   const handleGoogle = async () => {
     try {
       setLoading(true);
-      const result = await lovable.auth.signInWithOAuth("google", { redirect_uri: window.location.origin + "/dashboard" });
-      if (result.error) { toast.error("Google sign-in failed"); return; }
+      
+      const isLocalhost = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+      const isInLovableFrame = (() => {
+        try {
+          return window.self !== window.top && document.referrer.includes("lovable");
+        } catch {
+          return true;
+        }
+      })();
+
+      // Use direct Supabase OAuth if running locally or outside Lovable preview frame
+      if (isLocalhost || !isInLovableFrame) {
+        const { error } = await supabase.auth.signInWithOAuth({
+          provider: "google",
+          options: {
+            redirectTo: window.location.origin + "/auth",
+          },
+        });
+        if (error) throw error;
+        return;
+      }
+
+      // Default Lovable OAuth broker
+      const result = await lovable.auth.signInWithOAuth("google", { redirect_uri: window.location.origin + "/auth" });
+      if (result.error) {
+        console.warn("Lovable OAuth broker failed, falling back to native Supabase OAuth:", result.error);
+        const { error } = await supabase.auth.signInWithOAuth({
+          provider: "google",
+          options: {
+            redirectTo: window.location.origin + "/auth",
+          },
+        });
+        if (error) throw error;
+        return;
+      }
       if (result.redirected) return;
       navigate({ to: "/dashboard" });
-    } catch {
-      toast.error("Google sign-in failed");
+    } catch (err) {
+      console.error("Google sign-in error:", err);
+      toast.error(err instanceof Error ? err.message : "Google sign-in failed");
     } finally {
       setLoading(false);
     }
